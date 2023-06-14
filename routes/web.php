@@ -1,10 +1,11 @@
 <?php
 
+use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -39,5 +40,13 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::post('/create-category', [CategoryController::class, 'addCategory'])->name('add_category');
     Route::get('/edit/{id}', [CategoryController::class, 'edit'])->name('edit');
     Route::post('/update-category', [CategoryController::class, 'updateCategory'])->name('update_category');
-    Route::post('/delete', [CategoryController::class, 'delete'])->name('delete');
+    Route::post('/delete-ctg', [CategoryController::class, 'delete'])->name('delete');
+
+    Route::get('/author', [AuthorController::class, 'index'])->name('author');
+    Route::post('/add-author', [AuthorController::class, 'addAuthor'])->name('add_author');
+    Route::post('/delete', [AuthorController::class, 'delete'])->name('delete');
+    Route::get('/edit/{id}', [AuthorController::class, 'edit'])->name('edit');
+    Route::post('/update-author', [AuthorController::class, 'updateAuthor'])->name('update_author');
+
+    Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 });

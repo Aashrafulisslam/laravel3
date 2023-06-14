@@ -19,9 +19,6 @@ class CategoryController extends Controller
         Category::saveCategory($request);
         return back();
     }
-    public function manageCategory(){
-        return view('admin.category.manage');
-    }
     public function edit($id){
         return view('admin.category.edit',[
             'category' => Category::find($id),

@@ -29,7 +29,7 @@
                       <small class="mb-0">Some placeholder content</small>
                   </div>
                   <a href="{{ route('category') }}" class="list-group-item"><i class="bi bi-envelope"></i>Category</a>
-                  <a href="#" class="list-group-item"><i class="bi bi-chat-left-text"></i>Author</a>
+                  <a href="{{ route('author') }}" class="list-group-item"><i class="bi bi-chat-left-text"></i>Author</a>
               </div>
           </div>
 
@@ -41,14 +41,12 @@
                       </div>
                       <small class="mb-0">Some placeholder content</small>
                   </div>
-                  <a href="#" class="list-group-item">
+                  <a href="{{route('blog')}}" class="list-group-item">
                       <i class="bi bi-envelope"></i>Add Blog</a>
                   <a href="#" class="list-group-item">
                       <i class="bi bi-chat-left-text"></i>Manage Blog</a>
               </div>
           </div>
-
-
       </div>
   </div>
 </aside>
