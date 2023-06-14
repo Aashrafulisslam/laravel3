@@ -57,9 +57,9 @@
                                     <td>{{ $category->ctg_name }}</td>
                                     <td>{{ $category->status == 1 ?'published' : 'unPublished' }}</td>
                                     <td>
-                                        <a href="{{ route('edit',['id' => $category->id]) }}" class="btn btn-primary">Edit</a>
+                                        <a href="{{ route('edit_ctg',['id' => $category->id]) }}" class="btn btn-primary">Edit</a>
                                         {{-- <a href="{{ route('delete'}}" class="btn btn-danger">Delete</a> --}}
-                                        <form action="{{ route('delete') }}" method="post">
+                                        <form action="{{ route('delete_ctg') }}" method="post">
                                             @csrf
                                             <input type="hidden" name="ctg_id" value="{{ $category->id }}">
                                             <button type="submit" onclick="return confirm('Delete?')" class="btn btn-danger btn-sm">Delete</button>
