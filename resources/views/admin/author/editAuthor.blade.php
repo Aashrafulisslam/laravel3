@@ -13,11 +13,10 @@
                             <hr/>
                             <form action="{{ route('update_author') }}" method="post">
                                 @csrf
-                                <input type="hidden" name="author_id" value="{{ $author->id }}">
                                 <div class="row mb-3">
-                                    <label for="inputName" class="col-sm-3 col-form-label">Update Author Name</label>
+                                    <label for="inputAuthorName" class="col-sm-3 col-form-label">Update Author Name</label>
                                     <div class="col-sm-9">
-                                        <input type="text" name="author_name" class="form-control" id="inputName" value="{{ $author->author_name }}">
+                                        <input type="text" name="author_name" class="form-control" id="inputAuthorName" value="{{ $author->author_name }}">
                                     </div>
                                 </div>
                                 <div class="row">

@@ -45,8 +45,12 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::get('/author', [AuthorController::class, 'index'])->name('author');
     Route::post('/add-author', [AuthorController::class, 'addAuthor'])->name('add_author');
     Route::post('/delete', [AuthorController::class, 'delete'])->name('delete');
-    Route::get('/edit/{id}', [AuthorController::class, 'edit'])->name('edit');
+    Route::get('/edit/{id}', [AuthorController::class, 'editAuth'])->name('edit');
     Route::post('/update-author', [AuthorController::class, 'updateAuthor'])->name('update_author');
 
-    Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+    Route::get('/blog',[BlogController::class,'index'])->name('blog');
+    Route::post('/new-blog',[BlogController::class,'saveBlog'])->name('new.blog');
+    Route::get('/manage-blog',[BlogController::class,'manageBlog'])->name('manage.blog');
+    Route::get('/status/{id}',[BlogController::class,'status'])->name('status');
+
 });

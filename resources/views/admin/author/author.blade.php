@@ -45,7 +45,6 @@
                                 <tr>
                                     <th>Sl</th>
                                     <th>Auhtor Name</th>
-                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                                 @php
@@ -55,10 +54,7 @@
                                 <tr>
                                     <td>{{ $i++ }}</td>
                                     <td>{{ $author->author_name }}</td>
-                                    <td>{{ $author->status == 1 ?'published' : 'unPublished' }}</td>
-                                    <td>
-                                        <a href="{{ route('edit',['id' => $author->id]) }}" class="btn btn-primary">Edit</a>
-                                        {{-- <a href="{{ route('delete'}}" class="btn btn-danger">Delete</a> --}}
+                                    <td>                                    
                                         <form action="{{ route('delete') }}" method="post">
                                             @csrf
                                             <input type="hidden" name="author_id" value="{{ $author->id }}">

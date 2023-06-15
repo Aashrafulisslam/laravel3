@@ -25,15 +25,16 @@ class AuthorController extends Controller
         $this->author->delete();
         return back();
     }
-    public function edit($id){
+    public function editAuth($id){
+        // dd($id);
         return view('admin.author.editAuthor',[
             $this->author = Author::find($id),
-        ]);
+        ]); 
     }
     public function updateAuthor(Request $request){        
         $this->author = Author::find($request->author_id);
         $this->author->author_name = $request->author_name;
         $this->author->save();
-        return redirect('author');
+        return back();
     }
 }

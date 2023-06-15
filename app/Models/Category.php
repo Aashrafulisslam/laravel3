@@ -9,6 +9,7 @@ class Category extends Model
 {
     use HasFactory;
     private static $category;
+    
     public static function saveCategory($request){
         self::$category = new Category();
         self::$category->ctg_name = $request->ctg_name;

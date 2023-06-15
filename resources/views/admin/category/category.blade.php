@@ -15,7 +15,7 @@
                                 @csrf
                                 <div class="row mb-3">
                                     <label for="inputEnterYourName" class="col-sm-3 col-form-label">Enter Category Name</label>
-                                    <div class="col-sm-9">
+                                     <div class="col-sm-9">
                                         <input type="text" name="ctg_name" class="form-control" id="inputEnterYourName" placeholder="Enter Category Name">
                                     </div>
                                 </div>
@@ -55,7 +55,13 @@
                                 <tr>
                                     <td>{{ $i++ }}</td>
                                     <td>{{ $category->ctg_name }}</td>
-                                    <td>{{ $category->status == 1 ?'published' : 'unPublished' }}</td>
+                                    <td>
+                                        @if ($category -> status == 1)
+                                            <a href="{{ route('status', ['id' => $category->id]) }}" class="btn btn-success">Published</a>
+                                        @else
+                                            <a href="{{ route('status', ['id' => $category->id]) }}" class="btn btn-warning">Unpublished</a>
+                                        @endif
+                                    </td>
                                     <td>
                                         <a href="{{ route('edit_ctg',['id' => $category->id]) }}" class="btn btn-primary">Edit</a>
                                         {{-- <a href="{{ route('delete'}}" class="btn btn-danger">Delete</a> --}}
