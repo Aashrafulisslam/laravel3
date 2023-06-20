@@ -59,7 +59,7 @@ class BlogController extends Controller
             'blogs' => DB::table('blogs')
                      ->join('categories','blogs.category_id','=','categories.id')
                      ->join('authors','blogs.author_id','=','authors.id')
-                     ->select('blogs.*','categories.category_name','authors.author_name')
+                     ->select('blogs.*','categories.ctg_name','authors.author_name')
                      ->get()
         ]);
  
@@ -67,11 +67,11 @@ class BlogController extends Controller
     public function status($id){
        $blog = Blog::find($id);
        if ($blog->status == 1){
-           $blog->status = 2;
+           $blog->status = 0;
        }else{
            $blog->status = 1;
        }
         $blog->save();
        return back();
-    }
+    } 
 }

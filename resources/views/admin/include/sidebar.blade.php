@@ -43,7 +43,7 @@
                   </div>
                   <a href="{{route('blog')}}" class="list-group-item">
                       <i class="bi bi-envelope"></i>Add Blog</a>
-                  <a href="#" class="list-group-item">
+                  <a href="{{ route('manage.blog') }}" class="list-group-item">
                       <i class="bi bi-chat-left-text"></i>Manage Blog</a>
               </div>
           </div>

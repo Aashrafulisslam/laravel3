@@ -35,4 +35,14 @@ class CategoryController extends Controller
         $this->category->delete();
         return back();
     }
+    public function status($id){
+        $blog = Category::find($id);
+        if ($blog->status == 1){
+            $blog->status = 0;
+        }else{
+            $blog->status = 1;
+        }
+         $blog->save();
+        return back();
+     }
 }
