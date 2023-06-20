@@ -5,12 +5,14 @@
       </div>
       <ul class="nav nav-pills flex-column">
           <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Settings">
-              <button class="nav-link" data-bs-toggle="pill" data-bs-target="#settings" type="button"><i class="bi bi-gear"></i></button>
+                <button class="nav-link" data-bs-toggle="pill" data-bs-target="#settings" type="button">
+                    <i class="bi bi-gear"></i>
+                </button>
           </li>
           <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Blog">
-              <button class="nav-link" data-bs-toggle="pill" data-bs-target="#blog" type="button">
+                <button class="nav-link" data-bs-toggle="pill" data-bs-target="#blog" type="button">
                   <i class="bi bi-book-fill"></i>
-              </button>
+                </button>
           </li>
 
       </ul>
