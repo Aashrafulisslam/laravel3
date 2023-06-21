@@ -37,7 +37,7 @@ class BlogController extends Controller
  
     public function saveImage($request){
         $image = $request->file('image');
-        $imageName = rand().'.'.$image->extension();
+        $imageName = rand().'.'.$image->extension(); 
         $directory = 'admin/upload-image/blog-image/';
         $imageUrl = $directory.$imageName;
         $image->move($directory,$imageName);

@@ -16,7 +16,9 @@ class CategoryController extends Controller
         ]);
     }
     public function addCategory(Request $request){
-        Category::saveCategory($request);
+        $category = new Category();
+        $category->ctg_name = $request->ctg_name;
+        $category->save();
         return back();
     }
     public function edit($id){

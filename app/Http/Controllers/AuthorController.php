@@ -17,7 +17,9 @@ class AuthorController extends Controller
         ]);
     }
     public function addAuthor(Request $request){
-        Author::saveAuthor($request);
+        $author = new Author();
+        $author->author_name = $request->author_name;
+        $author->save();
         return back();
     }
     public function delete(Request $request){
@@ -29,9 +31,9 @@ class AuthorController extends Controller
         // dd($id);
         return view('admin.author.editAuthor',[
             $this->author = Author::find($id),
-        ]); 
+        ]);
     }
-    public function updateAuthor(Request $request){        
+    public function updateAuthor(Request $request){
         $this->author = Author::find($request->author_id);
         $this->author->author_name = $request->author_name;
         $this->author->save();
