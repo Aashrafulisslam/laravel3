@@ -41,11 +41,14 @@
                                     <td>{{$blog->status == 1 ? 'Published' : 'Unpublished'}}</td>
                                     <td>
 
-                                        <a href="" class="btn btn-sm btn-primary">edit</a>
+                                        <a href=" " class="px-2"><i class="fas fa-edit"></i></a>
+                                        @if (auth()->user()->admin)
+                                        <a href="" class="px-2"><i class="fa-solid fa-trash-can"></i></a>
+                                        @endif
                                         @if($blog->status == 1)
-                                            <a href="{{ route('status',['id'=>$blog->id]) }}" class="btn btn-sm btn-warning">unpublished</a>
+                                            <a href="{{ route('status',['id'=>$blog->id]) }}" class="btn btn-sm btn-warning">Unpublish</a>
                                         @else
-                                            <a href="{{ route('status',['id'=>$blog->id]) }}" class="btn btn-sm btn-success">published</a>
+                                            <a href="{{ route('status',['id'=>$blog->id]) }}" class="btn btn-sm btn-success">Publish</a>
                                         @endif
                                     </td>
                                 </tr>

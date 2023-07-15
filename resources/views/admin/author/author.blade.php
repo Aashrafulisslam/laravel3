@@ -11,7 +11,7 @@
                                 <h5 class="mb-0">Add Auhtor</h5>
                             </div>
                             <hr/>
-                            <form action="{{ route('add_author') }}" method="post">
+                            <form action="{{ route('author.store') }}" method="post">
                                 @csrf
                                 <div class="row mb-3">
                                     <label for="inputEnterYourName" class="col-sm-3 col-form-label">Enter Author Name</label>
@@ -55,8 +55,9 @@
                                     <td>{{ $i++ }}</td>
                                     <td>{{ $author->author_name }}</td>
                                     <td>                                    
-                                        <form action="{{ route('delete') }}" method="post">
+                                        <form action="{{ route('author.destroy', $author->id) }}" method="post">
                                             @csrf
+                                            @method('DELETE')
                                             <input type="hidden" name="author_id" value="{{ $author->id }}">
                                             <button type="submit" onclick="return confirm('Delete?')" class="btn btn-danger btn-sm">Delete</button>
                                         </form>

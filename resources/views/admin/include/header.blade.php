@@ -24,7 +24,7 @@
             <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" data-bs-toggle="dropdown">
               <div class="user-setting d-flex align-items-center gap-1">
                 <img src="{{ asset('adminAsset') }}/assets/images/avatars/avatar-1.png" class="user-img" alt="">
-                <div class="user-name d-none d-sm-block">Jhon Deo</div>
+                <div class="user-name d-none d-sm-block">{{auth()->user()->name}}</div>
               </div>
             </a>
             <ul class="dropdown-menu dropdown-menu-end">

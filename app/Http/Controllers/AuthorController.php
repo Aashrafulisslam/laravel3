@@ -2,41 +2,69 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\Author;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use PhpParser\Node\Stmt\Return_;
 
 class AuthorController extends Controller
 {
-    private $author;
-    public function index(){
-        return view('admin.author.author',[
-            'authors' => Author::all()
-        ]);
+    /**
+     * Display a listing of the resource.
+     */
+    public function index(Author $authors)
+    {
+        $authors = Author::all();
+        return view('admin.author.author', compact('authors'));
     }
-    public function addAuthor(Request $request){
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request, Author $author)
+    {
         $author = new Author();
         $author->author_name = $request->author_name;
         $author->save();
         return back();
     }
-    public function delete(Request $request){
-        $this->author = Author::find($request->author_id);
-        $this->author->delete();
-        return back();
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(Author $author)
+    {
+        
     }
-    public function editAuth($id){
-        // dd($id);
-        return view('admin.author.editAuthor',[
-            $this->author = Author::find($id),
-        ]);
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
     }
-    public function updateAuthor(Request $request){
-        $this->author = Author::find($request->author_id);
-        $this->author->author_name = $request->author_name;
-        $this->author->save();
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Author $author)
+    {
+        $author->delete();
         return back();
     }
 }

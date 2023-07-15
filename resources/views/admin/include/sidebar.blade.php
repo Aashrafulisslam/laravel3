@@ -1,17 +1,20 @@
 <aside class="sidebar-wrapper">
   <div class="iconmenu">
       <div class="nav-toggle-box">
-          <div class="nav-toggle-icon"><i class="bi bi-list"></i></div>
+          <div class="nav-toggle-icon"><i class="fa fa-list"></i></div>
       </div>
       <ul class="nav nav-pills flex-column">
-          <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Settings">
-                <button class="nav-link" data-bs-toggle="pill" data-bs-target="#settings" type="button">
-                    <i class="bi bi-gear"></i>
-                </button>
-          </li>
+        @if (auth()->user()->admin)
+        <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Settings">
+              <button class="nav-link" data-bs-toggle="pill" data-bs-target="#settings" type="button">
+                <i class="fa-solid fa-gear"></i>
+              </button>
+        </li>
+        @endif
+            
           <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Blog">
                 <button class="nav-link" data-bs-toggle="pill" data-bs-target="#blog" type="button">
-                  <i class="bi bi-book-fill"></i>
+                  <i class="fa-sharp fa-solid fa-pen-nib"></i>
                 </button>
           </li>
 
@@ -31,7 +34,7 @@
                       <small class="mb-0">Some placeholder content</small>
                   </div>
                   <a href="{{ route('category') }}" class="list-group-item"><i class="bi bi-envelope"></i>Category</a>
-                  <a href="{{ route('author') }}" class="list-group-item"><i class="bi bi-chat-left-text"></i>Author</a>
+                  <a href="{{ route('author.index') }}" class="list-group-item"><i class="bi bi-chat-left-text"></i>Author</a>
               </div>
           </div>
 

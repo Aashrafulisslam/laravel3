@@ -29,7 +29,7 @@
   <link href="{{ asset('adminAsset') }}/assets/css/semi-dark.css" rel="stylesheet" />
   <link href="{{ asset('adminAsset') }}/assets/css/header-colors.css" rel="stylesheet" />
 
-  <title> Admin Dashboard</title>
+  <title> {{auth()->user()->name}} Dashboard</title>
 </head>
 
 <body>
@@ -61,6 +61,7 @@
 
 
   <!-- Bootstrap bundle JS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="{{ asset('adminAsset') }}/assets/js/bootstrap.bundle.min.js"></script>
   <!--plugins-->
   <script src="{{ asset('adminAsset') }}/assets/js/jquery.min.js"></script>
