@@ -32,14 +32,16 @@ Route::get('/about', [HomeController::class, 'about'])->name('about');
 
 
 
-Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {        
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {     
+
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
     Route::get('/blog', [BlogController::class, 'index'])->name('blog');
     Route::post('/new-blog', [BlogController::class, 'saveBlog'])->name('new.blog');
     Route::get('/manage-blog', [BlogController::class, 'manageBlog'])->name('manage.blog');
-    Route::get('/status/{id}', [BlogController::class, 'status'])->name('status');
-
+    
     Route::middleware(['admin'])->group(function () {
+        Route::get('/blog_status/{id}', [BlogController::class, 'blog_status'])->name('blog.status');
 
         Route::get('/category', [CategoryController::class, 'index'])->name('category');
         Route::post('/create-category', [CategoryController::class, 'addCategory'])->name('add_category');

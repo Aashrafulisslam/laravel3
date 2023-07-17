@@ -30,7 +30,7 @@ class BlogController extends Controller
         $blog->image        = $this->saveImage($request);
         $blog->date         = $request->date;
         $blog->blog_type    = $request->blog_type;
-        $blog->status       = $request->status;
+        $blog->status       = 0;
         $blog->save();
         return back();
     }
@@ -64,7 +64,7 @@ class BlogController extends Controller
         ]);
  
     }
-    public function status($id){
+    public function blog_status($id){
        $blog = Blog::find($id);
        if ($blog->status == 1){
            $blog->status = 0;

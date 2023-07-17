@@ -10,29 +10,7 @@
                         </div>
                         <hr/>
                         <form action="{{route('new.blog')}}" method="post" enctype="multipart/form-data">
-                            @csrf
-                            <div class="row mb-3">
-                                <label for="inputEnterYourName" class="col-sm-3 col-form-label">Category</label>
-                                <div class="col-sm-9">
-                                    <select name="category_id" id="" class="form-control">
-                                        @foreach($categories as $category)
-                                         <option value="{{$category->id}}">{{$category->ctg_name}}</option>
-                                        @endforeach
-                                    </select>
-
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="inputEnterYourName" class="col-sm-3 col-form-label">Author</label>
-                                <div class="col-sm-9">
-                                    <select name="author_id" id="" class="form-control">
-                                        @foreach($authors as $author)
-                                        <option value="{{$author->id}}">{{$author->author_name}}</option>
-                                        @endforeach
-                                    </select>
-
-                                </div>
-                            </div>
+                            @csrf                            
                             <div class="row mb-3">
                                 <label for="title" class="col-sm-3 col-form-label">Title</label>
                                 <div class="col-sm-9">
@@ -44,6 +22,26 @@
                                 <label for="slug" class="col-sm-3 col-form-label">Slug</label>
                                 <div class="col-sm-9">
                                     <input type="text" name="slug" id="slug" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label">Author</label>
+                                <div class="col-sm-9">
+                                    <select name="author_id" id="" class="form-control">
+                                        @foreach($authors as $author)
+                                        <option value="{{$author->id}}">{{$author->author_name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label">Category</label>
+                                <div class="col-sm-9">
+                                    <select name="category_id" id="" class="form-control">
+                                        @foreach($categories as $category)
+                                         <option value="{{$category->id}}">{{$category->ctg_name}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -64,7 +62,6 @@
                                     <input type="date" name="date" id="date" class="form-control">
                                 </div>
                             </div>
-
                             <div class="row mb-3">
                                 <label for="blogType" class="col-sm-3 col-form-label">Blog Type</label>
                                 <div class="col-sm-9">
@@ -75,13 +72,15 @@
                                     </select>
                                 </div>
                             </div>
+                            @if (auth()->user()->admin)
                             <div class="row mb-3">
                                 <label for="status" class="col-sm-3 col-form-label">Status</label>
                                 <div class="col-sm-9">
                                     <input type="radio" name="status" value="1"> Published &nbsp;
-                                    <input type="radio" name="status" value="2"> Unpublished
+                                    <input type="radio" name="status" value="0"> Unpublished
                                 </div>
                             </div>
+                            @endif
                             <div class="row">
                                 <label class="col-sm-3 col-form-label"></label>
                                 <div class="col-sm-9">
