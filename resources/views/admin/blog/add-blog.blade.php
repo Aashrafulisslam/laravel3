@@ -50,6 +50,10 @@
                                     <textarea name="description" class="form-control" id="description" cols="20" rows="5"></textarea>
                                 </div>
                             </div>
+                            <?php 
+                                $currentDateTime = now();  
+                                $currentDateTime = date('d-m-Y');          
+                            ?>
                             <div class="row mb-3">
                                 <label for="image"  class="col-sm-3 col-form-label">Image</label>
                                 <div class="col-sm-9">
@@ -59,7 +63,7 @@
                             <div class="row mb-3">
                                 <label for="date"  class="col-sm-3 col-form-label">Date</label>
                                 <div class="col-sm-9">
-                                    <input type="date" name="date" id="date" class="form-control">
+                                    <input type="date" name="date" id="date" value="<?php echo $currentDateTime; ?>"> class="form-control">
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -72,7 +76,7 @@
                                     </select>
                                 </div>
                             </div>
-                            @if (auth()->user()->admin)
+                            @if (Auth::user()->admin)
                             <div class="row mb-3">
                                 <label for="status" class="col-sm-3 col-form-label">Status</label>
                                 <div class="col-sm-9">
